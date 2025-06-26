@@ -10,14 +10,12 @@ async function sendMessage() {
   input.value = "";
   chatBox.scrollTop = chatBox.scrollHeight;
 
-  const response = await fetch("https://diderobot-backend.onrender.com/api/chat"), 
-  {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({ message: userText })
-  });
+  const response = await fetch("https://diderobot-backend.onrender.com/api/chat", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ message: userText })
+});
+
 
   const data = await response.json();
   const botReply = data.choices[0].message.content;
